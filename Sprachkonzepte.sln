@@ -7,6 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aufgabe2_1", "Aufgabe2_1\Au
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textaufgaben", "Textaufgaben", "{B5A8D100-A977-4720-AC8B-5CA29939544E}"
 	ProjectSection(SolutionItems) = preProject
+		Aufgabe1.txt = Aufgabe1.txt
 		Textaufgaben\Aufgabe2_2.txt = Textaufgaben\Aufgabe2_2.txt
 		Textaufgaben\Aufgabe2_3.txt = Textaufgaben\Aufgabe2_3.txt
 		Textaufgaben\Aufgabe2_4_5.txt = Textaufgaben\Aufgabe2_4_5.txt
