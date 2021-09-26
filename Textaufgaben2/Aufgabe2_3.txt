@@ -1,0 +1,21 @@
+G = {N, Sigma, P, S}
+N = {S, T, U}
+Sigma = {0, 1}
+P = {S -> TU, T -> 0T1|Eps, U -> 1U0|10}
+
+a) Ableitung/Ableitungsbaum fuer 0011111000
+
+  1		2		2		  2		   3		  3			   3
+S -> TU -> 0T1U -> 00T11U -> 0011U -> 00111U0 -> 001111U00 -> 0011111000
+
+		  0	   0
+	 U -> U -> U -> 10
+  ->	  1	   1
+S  
+  ->	  1	   1
+	 T -> T -> T -> Eps
+		  0	   0
+
+b) Formal
+
+L(G) = {0^m 1^m | m>=1 }

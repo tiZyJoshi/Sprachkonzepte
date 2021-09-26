@@ -1,0 +1,24 @@
+let QuadraticArray = { Array with Dimension(2), Size(10) }; // Array<Type(?), Dimension(2), Size(10)>?
+let quadraticIntArray = QuadraticArray.Fill(0); // int -> Array<Type(int), Dimension(2), Size(10)>
+let quadraticFloatArray = QuadraticArray.Fill(0.0f); // int -> Array<Type(float), Dimension(2), Size(10)>
+let PositiveInt = { Guard with Predicate(v -> >= 0) }; // Guard<Type(int), Predicate(int -> bool)>?
+let QuadraticPositiveIntArray = { QuadraticArray with Type(PositiveInt) }; // Array<Type(PositiveInt), Dimension(2), Size(10)>?
+let quadraticPositiveIntArray = QuadraticPositiveIntArray.Fill(0); // int -> Array<Type(PositiveInt), Dimension(2), Size(10)>
+let PositiveFloat = { Guard with Predicate(v -> >= 0.0f) };
+let QuadraticPositiveFloatArray = { QuadraticArray with Type(PositiveFloat) }; // int -> Array<Type(PositiveInt), Dimension(2), Size(10)>
+let quadraticPositiveFloatArray = QuadraticPositiveFloatArray.Fill(0.0f); // int -> Array<Type(PositiveInt), Dimension(2), Size(10)>
+
+let add a1 a2 = Map(a1, a2, (v1, v2) -> +); // Array<Type(? has (+)), Dimension(?), Size(?)> -> Array<Type(? has (+)), Dimension(?), Size(?)> -> Array<Type(? has (+)), Dimension(?), Size(?)>
+let fill source target = target.Fill(source); // ? has Fill(T) -> T -> ?
+
+Tokens:
+let, =, {, }, (, ), with, ;, ->
+
+Backus-Naur:
+<let> ::= let <symbol> = <expression>
+<assignment> ::= <expression(?)> = <expression>
+<type_specification> ::= { <type> with <type_template_variable>(<value>) }
+<instruction_end> ::= <instruction>;
+<function_call> ::= <function_name>(<function_parameters>)
+<type_method_call> ::= <symbol>.<function_name>(<function_parameters>)
+<lambda> ::= (<args>) => <expression>

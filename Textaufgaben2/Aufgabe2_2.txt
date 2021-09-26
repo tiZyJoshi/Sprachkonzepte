@@ -1,0 +1,20 @@
+G = {N, Sigma, P, S}
+N = {S, T}
+Sigma = {a, c, u, v}
+P = {S -> aSc|T, T->u|v}
+
+
+a) Ableitung fuer aaucc
+
+S -> aSc -> aaScc -> aaTcc -> aaucc
+
+b) Ableitungsbaum fuer aaavccc
+
+	 a	  a    a
+S -> S -> S -> S -> T -> v
+	 c    c    c
+
+c) Formal
+
+L(G) = {a^m c^m u^n v^|n-1| | m>=0, n ist element von {1,0} }
+
