@@ -5,7 +5,12 @@ VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Aufgabe2_1", "Aufgabe2_1\Aufgabe2_1.vcxproj", "{9761401A-D10F-4BB9-8160-E4B0C8F3F30F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Textaufgaben2", "Textaufgaben2\Textaufgaben2.vcxproj", "{9E009D90-64A2-4B73-A150-C370F2D5F5D3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textaufgaben", "Textaufgaben", "{B5A8D100-A977-4720-AC8B-5CA29939544E}"
+	ProjectSection(SolutionItems) = preProject
+		Textaufgaben\Aufgabe2_2.txt = Textaufgaben\Aufgabe2_2.txt
+		Textaufgaben\Aufgabe2_3.txt = Textaufgaben\Aufgabe2_3.txt
+		Textaufgaben\Aufgabe2_4_5.txt = Textaufgaben\Aufgabe2_4_5.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,16 +33,6 @@ Global
 		{9761401A-D10F-4BB9-8160-E4B0C8F3F30F}.Release|x64.Build.0 = Release|x64
 		{9761401A-D10F-4BB9-8160-E4B0C8F3F30F}.Release|x86.ActiveCfg = Release|Win32
 		{9761401A-D10F-4BB9-8160-E4B0C8F3F30F}.Release|x86.Build.0 = Release|Win32
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Debug|x64.ActiveCfg = Debug|x64
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Debug|x64.Build.0 = Debug|x64
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Debug|x86.ActiveCfg = Debug|Win32
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Debug|x86.Build.0 = Debug|Win32
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Release|Any CPU.ActiveCfg = Release|Win32
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Release|x64.ActiveCfg = Release|x64
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Release|x64.Build.0 = Release|x64
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Release|x86.ActiveCfg = Release|Win32
-		{9E009D90-64A2-4B73-A150-C370F2D5F5D3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
