@@ -10,3 +10,16 @@ let quadraticPositiveFloatArray = QuadraticPositiveFloatArray.Fill(0.0f); // int
 
 let add a1 a2 = Map(a1, a2, (v1, v2) -> +); // Array<Type(? has (+)), Dimension(?), Size(?)> -> Array<Type(? has (+)), Dimension(?), Size(?)> -> Array<Type(? has (+)), Dimension(?), Size(?)>
 let fill source target = target.Fill(source); // ? has Fill(T) -> T -> ?
+
+Typen und deren Funktionen(Fill, Map) werden in Bibliotheken definiert
+Types werden inferred :)
+Funktionen koennen mit . gecallt werden oder das erste Argument der Funktion ist der 
+
+- let: deklaration
+- =: zuweisung
+- {}: zur definition von unvollstaendigen typen (?)
+- with: mit with koennen Template Types naeher definiert werden (muss aber nicht vollstaendig sein)
+- ;: Ende eines Statements
+- .: Function Call
+- ->: Lambda definition
+- (): Funktions Parameters
