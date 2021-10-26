@@ -1,0 +1,47 @@
+1.
+?-isparent(X, sophia)
+?-issibling(X, sophia)
+?-isuncle(X, sophia)
+?-setof(t, Y^ Z^ (isparent(X, Y), isparent(X, Z), Y \== Z), _)
+?-setof(t, Y^ Z^ (issibling(X, Y), issibling(X, Z), Y \== Z), _)
+?-setof(t, X^ (isuncle(X, Y)), _)
+
+2.
+isgrandmother(X, Y) :- isparent(X, A), isparent(A, Y), female(X).
+isancestor(X, Y) :- isparent(X, Y).
+isancestor(X, Y) :- isparent(X, A), isancestor(A, Y).
+hassonanddaugther(X) :- isparent(X, A), male(A), isparent(X, B), female(B).
+hasbrotherandsister(X) :- issibling(X, A), male(A), issibling(X, B), female(B).
+haveoffspring(X, Y) :- isparent(X, A), isparent(Y, A), X \== Y. /* X soll nicht Y sein, damit das ganze in einem query auch funktioniert.. */
+havesamegrandparent(X, Y) :- isgrandparent(A, X), isgrandparent(A, Y), X \== Y.
+
+3.
+/*
+viereck         trapez         symmetrisches_trapez
+schiefer_drache parallelogramm rechteck
+deltoid         raute          quadrat
+*/
+
+unterart(viereck, trapez). unterart(viereck, schiefer_drache).  
+unterart(trapez, symmetrisches_trapez). unterart(trapez, parallelogramm).
+unterart(schiefer_drache, parallelogramm). unterart(schiefer_drache, deltoid).
+unterart(parallelogramm, rechteck). unterart(parallelogramm, raute).
+unterart(symmetrisches_trapez, rechteck).
+unterart(rechteck, quadrat).
+unterart(deltoid, raute).
+unterart(raute, quadrat).
+
+gleichebasis(X, Y) :- unterart(A, X), unterart(A, Y).
+
+isunterart(X, Y) :- unterart(X, Y).
+isunterart(X, Y) :- unterart(X, A), isunterart(A, Y).
+
+4.
+person(anna). person(bruno). person(christa). person(david).
+
+loesung(Ph, Ch, Ma, Sp, Fu, Ta, Po, Sc) :-
+    person(Ph), person(Ch), person(Ma), person(Sp), 
+    person(Fu), person(Ta), person(Po), person(Sc),
+    Ph\==Ch, Ph\==Ma, Ph\==Sp, Ch\==Ma, Ch\==Sp, Ma\==Sp, 
+    Fu\==Ta, Fu\==Po, Fu\==Sc, Ta\==Po, Ta\==Sc, Po\==Sc, 
+    Ph==anna, Ch==Fu, Sc==bruno, Sp\==david, Fu\==david.
