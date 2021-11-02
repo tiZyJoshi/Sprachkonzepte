@@ -1,0 +1,6 @@
+a = 3
+b = 5
+c = b - a
+d = 12
+c gtz d = d - a
+e = d / 2

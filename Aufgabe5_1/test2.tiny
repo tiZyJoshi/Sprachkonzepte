@@ -1,0 +1,32 @@
+; variables
+; a in $1
+; b in $2
+; c in $3
+; d in $4
+
+load $0 3 ; $0 <- 3
+load $1 $0 ; a <- $0
+load $0 5 ; $0 <- 5
+load $2 $0 ; b <- $0
+load $0 10 ; $0 <- 10
+load $3 $0 ; c <- $0
+load $0 100 ; $0 <- 100
+load $4 $0 ; d <- $0
+add $5 $1 $2 ; tmp5 <- a + b
+mul $6 $5 $3 ; tmp6 <- tmp5 * c
+add $7 $6 $4 ; tmp7 <- tmp6 + d
+load $4 $7 ; d <- tmp7
+
+echo a:
+load $0 $1
+call write
+echo b:
+load $0 $2
+call write
+echo c:
+load $0 $3
+call write
+echo d:
+load $0 $4
+call write
+stop

@@ -1,0 +1,39 @@
+; variables
+; a in $1
+; b in $2
+; c in $3
+; d in $4
+; e in $5
+
+load $0 3 ; $0 <- 3
+load $1 $0 ; a <- $0
+load $0 5 ; $0 <- 5
+load $2 $0 ; b <- $0
+sub $6 $2 $1 ; tmp6 <- b - a
+load $3 $6 ; c <- tmp6
+load $0 12 ; $0 <- 12
+load $4 $0 ; d <- $0
+jle $3 0 label_1 ; if c <= 0 goto label_1
+sub $7 $4 $1 ; tmp7 <- d - a
+load $4 $7 ; d <- tmp7
+:label_1
+load $0 2 ; $0 <- 2
+div $8 $4 $0 ; tmp8 <- d / $0
+load $5 $8 ; e <- tmp8
+
+echo a:
+load $0 $1
+call write
+echo b:
+load $0 $2
+call write
+echo c:
+load $0 $3
+call write
+echo d:
+load $0 $4
+call write
+echo e:
+load $0 $5
+call write
+stop

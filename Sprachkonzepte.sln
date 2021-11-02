@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textaufgaben", "Textaufgabe
 		Textaufgaben\Aufgabe2_2.txt = Textaufgaben\Aufgabe2_2.txt
 		Textaufgaben\Aufgabe2_3.txt = Textaufgaben\Aufgabe2_3.txt
 		Textaufgaben\Aufgabe2_4_5.txt = Textaufgaben\Aufgabe2_4_5.txt
+		Aufgabe5.txt = Aufgabe5.txt
 		Aufgabe6.txt = Aufgabe6.txt
+		Aufgaben5_2.png = Aufgaben5_2.png
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OldCamel", "OldCamel\OldCamel.fsproj", "{DABD1BF6-50F7-4AC4-AB3D-CC5EDFDC738F}"
