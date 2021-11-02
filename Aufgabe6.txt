@@ -7,7 +7,8 @@
 ?-setof(t, X^ (isuncle(X, Y)), _)
 
 2.
-isgrandmother(X, Y) :- isparent(X, A), isparent(A, Y), female(X).
+isgrandparent(X, Y) :- isparent(X, A), isparent(A, Y).
+isgrandmother(X, Y) :- isgrandparent(X, Y), female(X).
 isancestor(X, Y) :- isparent(X, Y).
 isancestor(X, Y) :- isparent(X, A), isancestor(A, Y).
 hassonanddaugther(X) :- isparent(X, A), male(A), isparent(X, B), female(B).

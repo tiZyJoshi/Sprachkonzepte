@@ -1,0 +1,304 @@
+Terminals unused in grammar
+
+    OTHER
+
+
+Grammar
+
+    0 $accept: lines $end
+
+    1 lines: lines line
+    2      | %empty
+
+    3 line: expr EOL
+    4     | assign_mem EOL
+
+    5 expr: expr PLUS_OP term
+    6     | expr MINUS_OP term
+    7     | term
+
+    8 term: term MULT_OP factor
+    9     | term DIV_OP factor
+   10     | factor
+
+   11 factor: FPNUM
+   12       | MEMORY
+   13       | PAR_LEFT expr PAR_RIGHT
+
+   14 assign_mem: ASSIGN MEMORY
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256)
+    PLUS_OP (258) 5
+    MINUS_OP (259) 6
+    MULT_OP (260) 8
+    DIV_OP (261) 9
+    PAR_LEFT (262) 13
+    PAR_RIGHT (263) 13
+    ASSIGN (264) 14
+    EOL (265) 3 4
+    OTHER (266)
+    MEMORY <mem_idx> (267) 12 14
+    FPNUM <fpnum> (268) 11
+
+
+Nonterminals, with rules where they appear
+
+    $accept (14)
+        on left: 0
+    lines (15)
+        on left: 1 2
+        on right: 0 1
+    line (16)
+        on left: 3 4
+        on right: 1
+    expr <fpnum> (17)
+        on left: 5 6 7
+        on right: 3 5 6 13
+    term <fpnum> (18)
+        on left: 8 9 10
+        on right: 5 6 7 8 9
+    factor <fpnum> (19)
+        on left: 11 12 13
+        on right: 8 9 10
+    assign_mem <mem_idx> (20)
+        on left: 14
+        on right: 4
+
+
+State 0
+
+    0 $accept: . lines $end
+
+    $default  reduce using rule 2 (lines)
+
+    lines  go to state 1
+
+
+State 1
+
+    0 $accept: lines . $end
+    1 lines: lines . line
+
+    $end      shift, and go to state 2
+    PAR_LEFT  shift, and go to state 3
+    ASSIGN    shift, and go to state 4
+    MEMORY    shift, and go to state 5
+    FPNUM     shift, and go to state 6
+
+    line        go to state 7
+    expr        go to state 8
+    term        go to state 9
+    factor      go to state 10
+    assign_mem  go to state 11
+
+
+State 2
+
+    0 $accept: lines $end .
+
+    $default  accept
+
+
+State 3
+
+   13 factor: PAR_LEFT . expr PAR_RIGHT
+
+    PAR_LEFT  shift, and go to state 3
+    MEMORY    shift, and go to state 5
+    FPNUM     shift, and go to state 6
+
+    expr    go to state 12
+    term    go to state 9
+    factor  go to state 10
+
+
+State 4
+
+   14 assign_mem: ASSIGN . MEMORY
+
+    MEMORY  shift, and go to state 13
+
+
+State 5
+
+   12 factor: MEMORY .
+
+    $default  reduce using rule 12 (factor)
+
+
+State 6
+
+   11 factor: FPNUM .
+
+    $default  reduce using rule 11 (factor)
+
+
+State 7
+
+    1 lines: lines line .
+
+    $default  reduce using rule 1 (lines)
+
+
+State 8
+
+    3 line: expr . EOL
+    5 expr: expr . PLUS_OP term
+    6     | expr . MINUS_OP term
+
+    PLUS_OP   shift, and go to state 14
+    MINUS_OP  shift, and go to state 15
+    EOL       shift, and go to state 16
+
+
+State 9
+
+    7 expr: term .
+    8 term: term . MULT_OP factor
+    9     | term . DIV_OP factor
+
+    MULT_OP  shift, and go to state 17
+    DIV_OP   shift, and go to state 18
+
+    $default  reduce using rule 7 (expr)
+
+
+State 10
+
+   10 term: factor .
+
+    $default  reduce using rule 10 (term)
+
+
+State 11
+
+    4 line: assign_mem . EOL
+
+    EOL  shift, and go to state 19
+
+
+State 12
+
+    5 expr: expr . PLUS_OP term
+    6     | expr . MINUS_OP term
+   13 factor: PAR_LEFT expr . PAR_RIGHT
+
+    PLUS_OP    shift, and go to state 14
+    MINUS_OP   shift, and go to state 15
+    PAR_RIGHT  shift, and go to state 20
+
+
+State 13
+
+   14 assign_mem: ASSIGN MEMORY .
+
+    $default  reduce using rule 14 (assign_mem)
+
+
+State 14
+
+    5 expr: expr PLUS_OP . term
+
+    PAR_LEFT  shift, and go to state 3
+    MEMORY    shift, and go to state 5
+    FPNUM     shift, and go to state 6
+
+    term    go to state 21
+    factor  go to state 10
+
+
+State 15
+
+    6 expr: expr MINUS_OP . term
+
+    PAR_LEFT  shift, and go to state 3
+    MEMORY    shift, and go to state 5
+    FPNUM     shift, and go to state 6
+
+    term    go to state 22
+    factor  go to state 10
+
+
+State 16
+
+    3 line: expr EOL .
+
+    $default  reduce using rule 3 (line)
+
+
+State 17
+
+    8 term: term MULT_OP . factor
+
+    PAR_LEFT  shift, and go to state 3
+    MEMORY    shift, and go to state 5
+    FPNUM     shift, and go to state 6
+
+    factor  go to state 23
+
+
+State 18
+
+    9 term: term DIV_OP . factor
+
+    PAR_LEFT  shift, and go to state 3
+    MEMORY    shift, and go to state 5
+    FPNUM     shift, and go to state 6
+
+    factor  go to state 24
+
+
+State 19
+
+    4 line: assign_mem EOL .
+
+    $default  reduce using rule 4 (line)
+
+
+State 20
+
+   13 factor: PAR_LEFT expr PAR_RIGHT .
+
+    $default  reduce using rule 13 (factor)
+
+
+State 21
+
+    5 expr: expr PLUS_OP term .
+    8 term: term . MULT_OP factor
+    9     | term . DIV_OP factor
+
+    MULT_OP  shift, and go to state 17
+    DIV_OP   shift, and go to state 18
+
+    $default  reduce using rule 5 (expr)
+
+
+State 22
+
+    6 expr: expr MINUS_OP term .
+    8 term: term . MULT_OP factor
+    9     | term . DIV_OP factor
+
+    MULT_OP  shift, and go to state 17
+    DIV_OP   shift, and go to state 18
+
+    $default  reduce using rule 6 (expr)
+
+
+State 23
+
+    8 term: term MULT_OP factor .
+
+    $default  reduce using rule 8 (term)
+
+
+State 24
+
+    9 term: term DIV_OP factor .
+
+    $default  reduce using rule 9 (term)
